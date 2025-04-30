@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Farm Shares</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #dce35b, #45b649), url('/static/images/farm_background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .content {
+            text-align: center;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin-top: 100px;
+            margin-left: 10%;
+            margin-right: 10%;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .content h1 {
+            font-size: 2.5rem;
+            color: #2e7d32;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #4caf50;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        ul li:before {
+            content: "🌿 ";
+            color: #2e7d32;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #388e3c;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<div class="content">
+    <h1>Farming Investment Opportunities</h1>
+
+    <ul>
+        <li>🌾  Invest in Organic Wheat Farming — Returns up to 12%</li>
+        <li>🍅  Tomato Greenhouse Project — Partner Opportunities</li>
+        <li>☀️  Solar Powered Irrigation Systems — Support Farmers</li>
+        <li>🐄  Dairy Farm Expansion Program — Revenue Sharing</li>
+    </ul>
+
+    <p>Contact us for more details!</p>
+
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+    particlesJS.load('particles-js', '{{ url_for('static', filename='js/particles.json') }}');
+</script>
+
+</body>
+</html>

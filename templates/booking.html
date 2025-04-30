@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Services</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #dce35b, #45b649), url('/static/images/home_image.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .content {
+            text-align: center;
+            margin-top: 150px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin-left: 10%;
+            margin-right: 10%;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .content h1 {
+            font-size: 2.5rem;
+            color: #2e7d32;
+        }
+
+        form select,
+        form input,
+        form button {
+            padding: 12px;
+            width: 80%;
+            margin: 10px auto;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+        }
+
+        form button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #388e3c;
+        }
+
+        a {
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<div class="content">
+    <h1>Book Agricultural Services</h1>
+    <form method="POST" action="{{ url_for('booking') }}">
+        <select name="service" required>
+            <option value="">Select Service</option>
+            <option value="Tractor Rental">Tractor Rental</option>
+            <option value="Seed Purchase">Seed Purchase</option>
+            <option value="Fertilizer Supply">Fertilizer Supply</option>
+            <option value="Irrigation Setup">Irrigation Setup</option>
+        </select><br>
+    
+        <input type="text" name="name" placeholder="Name" required><br>
+        <input type="text" name="village" placeholder="Village" required><br>
+        <input type="text" name="phone" placeholder="Phone" required><br>
+        <input type="date" name="date" placeholder="Preferred Date" required><br>
+        <input type="time" name="time" placeholder="Preferred Time" required><br>
+    
+        <button type="submit">Book Now</button>
+    </form>
+
+    <br><a href="{{ url_for('home') }}">Back to Home</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+    particlesJS.load('particles-js', '{{ url_for('static', filename='js/particles.json') }}');
+</script>
+
+</body>
+</html>

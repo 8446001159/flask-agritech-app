@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us - AgriTech Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: linear-gradient(to right, #dce35b, #45b649);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #2e7d32;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    header h1 {
+      font-size: 3em;
+      text-shadow: 1px 1px #ffffff;
+    }
+
+    header p {
+      font-size: 1.1em;
+      color: #4e944f;
+    }
+
+    .contact-form {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #2e7d32;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 1em;
+    }
+
+    .contact-form button {
+      background-color: #45b649;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #388e3c;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 20px;
+      font-size: 1em;
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      .contact-form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>🌾 Contact Us</h1>
+      <p>We’d love to hear from you – farmers, researchers, and tech innovators alike!</p>
+    </header>
+
+    <div class="contact-form">
+      <form action="{{ url_for('contact') }}" method="POST">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <a href="{{ url_for('home') }}" class="btn">Home</a>
+  </footer>
+  <footer>
+    🌱 AgriTech Projects – Cultivating Ideas into Reality
+  </footer>
+</body>
+</html>
