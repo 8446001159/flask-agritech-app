@@ -4,9 +4,9 @@ import os
 
 app = Flask(__name__)
 
-# Hardcoded credentials
-USERNAME = "admin"
-PASSWORD = "1234"
+# Use environment variables for credentials (fallback to default for local dev)
+USERNAME = os.environ.get("USERNAME", "admin")
+PASSWORD = os.environ.get("PASSWORD", "1234")
 
 # Excel file path
 EXCEL_FILE = 'farmer_data.xlsx'
@@ -48,7 +48,6 @@ def register():
         wb.save(EXCEL_FILE)
 
         return redirect(url_for('home'))
-
     return render_template('register.html')
 
 @app.route('/booking', methods=['GET', 'POST'])
@@ -64,7 +63,6 @@ def booking():
             return f"Missing form field: {e}"
 
         wb = load_workbook(EXCEL_FILE)
-
         if "Bookings" not in wb.sheetnames:
             wb.create_sheet("Bookings")
             booking_ws = wb["Bookings"]
@@ -76,7 +74,6 @@ def booking():
         wb.save(EXCEL_FILE)
 
         return redirect(url_for('home'))
-
     return render_template('booking.html')
 
 @app.route('/shares')
@@ -98,7 +95,6 @@ def contact():
             return f"Missing form field: {e}"
 
         wb = load_workbook(EXCEL_FILE)
-
         if "Contacts" not in wb.sheetnames:
             wb.create_sheet("Contacts")
             contact_ws = wb["Contacts"]
@@ -110,7 +106,6 @@ def contact():
         wb.save(EXCEL_FILE)
 
         return redirect(url_for('home'))
-
     return render_template('contact.html')
 
 if __name__ == "__main__":
